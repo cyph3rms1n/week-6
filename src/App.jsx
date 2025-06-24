@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// Testing Refactor in App.jsx
 
 function App() {
   const [count, setCount] = useState(0)
