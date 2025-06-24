@@ -1,13 +1,13 @@
-import { React } from "react"
+import React, { useState } from 'react';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <Header title = " Novamaster"></Header>
+    <div>
+      <Header title = "Novamaster"></Header>
       <Header title="persiphone"></Header>
-    </>
+    </div>
   )
 }
 
