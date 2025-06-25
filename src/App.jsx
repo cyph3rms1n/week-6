@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
 // Testing Refactor in App.jsx
+import { useState, memo,Fragment } from "react"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [titleToChange, setTitle] = useState("My name is sam");
+
+  function updateTitle(){
+    setTitle("My name is "+ Math.random());
+  }
 
   return (
-    <div>
-      <Header title = "Novamaster"></Header>
-      <Header title="persiphone"></Header>
-    </div>
+    <fragment>
+    <button onClick={updateTitle}>Change title</button>
+    <Header title ={titleToChange}></Header>
+    <Header title="persiphone"></Header>
+    <Header title="persiphone_viper"></Header>
+    <Header title="persiphone_serpent"></Header>
+    </fragment>
   )
 }
 
-function Header ({title}){
+const Header = memo(function Header({title}){
   return <div>
     {title}
   </div>
-}
+})
 
 export default App
