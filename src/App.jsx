@@ -5,7 +5,7 @@ function App() {
   const [titleToChange, setTitle] = useState("My name is sam");
 
   function updateTitle(){
-    setTitle("My name is "+ Math.random());
+    setTitle("My name is: "+ Math.random());
   }
 
   return (
