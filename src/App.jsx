@@ -1,21 +1,31 @@
+import { useState } from "react"
+import { useEffect } from "react"
+
 function App() {
-    return <div>
-        <CardWrapper innerComponent = {<TextComponenet/>} />
-    </div>
+    const [todos , setTodos] = useState([]);
 
+    useEffect(() =>{
+        fetch("https://sum-server.100xdevs.com/todos")
+            .then(async function(res) {
+                const json = await res.json();
+                setTodos(json.todos);
+            })
+    }, [])
+
+    return <div>
+        {todos.map(todo => <Todo key={todo.id} title = {todo.title} description={todo.description} />)}
+    </div>
 }
 
-function TextComponenet(){
-    return <div>
-        Hi there
-    </div>
-}
 
-function CardWrapper({innerComponent }) {
-    // Create a div which has a border (Hint: The way to create a border is border:"2px solid black")
-    // And inside the div, renters the prop
-    return <div style = {{border:"2px solid black"}}>
-        {innerComponent}
+function Todo({title, description}){
+    return <div>
+        <h1>
+            {title}
+        </h1>
+        <h4>
+            {description}
+        </h4>
     </div>
 }
 
