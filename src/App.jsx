@@ -13,10 +13,9 @@ function App() {
     }, [])
 
     return <div>
-        {todos.map(todo => <Todo key={todo.id} title = {todo.title} description={todo.description} />)}
+        {todos.map(todo => <Todo  title = {todo.title} description = {todo.description} />)}
     </div>
 }
-
 
 function Todo({title, description}){
     return <div>
@@ -28,6 +27,5 @@ function Todo({title, description}){
         </h4>
     </div>
 }
-
 
 export default App
