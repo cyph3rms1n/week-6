@@ -16,7 +16,6 @@ function App() {
     </>
 }
 
-
 function Todo({title, description}){
     return <div>
         <h1>{title}</h1>
