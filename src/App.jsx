@@ -15,7 +15,6 @@ function App() {
         {todos.map(todo => <Todo key = {todo.id} title = {todo.title} descripton = {todo.description} />)}
     </>
 }
-
 function Todo({title, description}){
     return <div>
         <h1>{title}</h1>
