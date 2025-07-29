@@ -2,11 +2,24 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 
 function App() {
-    
-    const[todos, setTodos] = useState([]);
+    const [selectedId, setSelectedId] = useState(1);
+
+    return (
+        <div>
+            <button onClick={() => setSelectedId(1)}>1</button>
+            <button onClick={() => setSelectedId(2)}>2</button>
+            <button onClick={() => setSelectedId(3)}>3</button>
+            <Todo id={selectedId} />
+        </div>
+    );
+}
+
+function Todo({ id }) {
+    const [todo, setTodo] = useState({});
 
     useEffect(() => {
-        axios.get("https://jsonplaceholder.typicode.com/todos")
+<<<<<<< HEAD
+        axios.get("")
             .then(function(response) {
                 setTodos(response.data.todos);
             })
@@ -23,4 +36,20 @@ function Todo({title, description}){
 }
 
 
+=======
+        axios.get("https://sum-server.100xdevs.com/todo?id=" + id)
+            .then(response => {
+                setTodo(response.data.todo);
+            });
+    }, [id]);
+
+    return (
+        <div>
+            <h1>{todo.title}</h1>
+            <h4>{todo.description}</h4>
+        </div>
+    );
+}
+
+>>>>>>> 8f9f4a7 (tired)
 export default App
