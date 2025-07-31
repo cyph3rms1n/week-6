@@ -12,7 +12,6 @@ function App() {
         }
         return sum;
     }, [inputValue]);
-
     console.log(finalVal);
 
     return <div>
